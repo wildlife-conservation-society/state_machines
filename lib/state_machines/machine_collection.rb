@@ -20,6 +20,8 @@ module StateMachines
     # * <tt>:to</tt> - A hash to write the initialized state to instead of
     #   writing to the object.  Default is to write directly to the object.
     def initialize_states(object, options = {}, attributes = {})
+      attributes ||= {}
+
       options.assert_valid_keys( :static, :dynamic, :to)
       options = {:static => true, :dynamic => true}.merge(options)
 
